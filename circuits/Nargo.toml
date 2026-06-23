@@ -1,0 +1,8 @@
+[package]
+name = "aero_circuits"
+type = "bin"
+authors = ["Aero Protocol"]
+compiler_version = ">=0.36.0"
+description = "Aero ZK circuits for private trade finance and invoice factoring on Stellar"
+
+[dependencies]
