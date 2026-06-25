@@ -6,7 +6,34 @@
 
 By combining **zkTLS** (to verify Web2 API data authenticity) with **Noir** (to generate off-chain privacy proofs) and **Stellar Soroban**, Aero bridges the multi-trillion-dollar traditional invoice factoring market with DeFi liquidity—without exposing sensitive client lists or pricing to the public blockchain.
 
-> **Built for:** [Stellar Hacks: Real-World ZK](https://dorahacks.io/hackathon/stellar-hacks-zk/detail)  
+> **Built for:** [Stellar Hacks: Real-World ZK](https://dorahacks.io/hackathon/stellar-hacks-zk/detail)
+
+## Protocol Works
+```mermaid
+graph TD
+    subgraph Web2 World [Web2 / Private Data]
+        A[User / SME] -->|1. Connects Account| B(Web2 API e.g., Stripe, Xero)
+        B -->|2. Returns Signed Data| C(zkTLS Client)
+    end
+
+    subgraph Off-Chain Computation [Off-Chain ZK Prover]
+        C -->|3. Authenticated Payload| D(Noir ZK Circuit)
+        D -->|4. Generates UltraHonk Proof| E[Proof Bytes + Public Inputs]
+        D -.->|Hides: Client Name, Exact Amount| D
+    end
+
+    subgraph Stellar Blockchain [Stellar Testnet]
+        E -->|5. Submits request_loan| F{Aero Soroban Smart Contract}
+        F -->|6. Verifies via BN254 Host Functions| G[Proof Validated]
+        G -->|7. Extracts Nullifier| H{Persistent Storage Registry}
+        H -->|Not Found| I[Mint Loan NFT & Transfer USDC/XLM]
+        H -->|Already Used| J[Reject: Double Spend Attempt]
+    end
+
+    style Web2 World fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style Off-Chain Computation fill:#e1f5fe,stroke:#03a9f4,stroke-width:2px
+    style Stellar Blockchain fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px
+```
 
 ---
 
