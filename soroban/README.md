@@ -2,6 +2,17 @@
 
 Stellar smart contracts for the Aero Protocol
 
+### Deployed Smart contracts
+- [Main Contract](https://stellar.expert/explorer/testnet/contract/CD6NZ7RHK2IUCP4CM3WHHNK22BBXPYIZUX6ISHZAGXXKTI6ZMN6Q5FFR)
+  ```
+  CD6NZ7RHK2IUCP4CM3WHHNK22BBXPYIZUX6ISHZAGXXKTI6ZMN6Q5FFR
+  ```
+- [Mock USDC](https://stellar.expert/explorer/testnet/contract/CAEIJB5RB4MQ2NBT6QVGZETKR6CBWPZBFKJX5472ACPFLDYJNHEFK6KB)
+  ```
+  CAEIJB5RB4MQ2NBT6QVGZETKR6CBWPZBFKJX5472ACPFLDYJNHEFK6KB
+  ```
+  
+
 ## Architecture
 
 ```
